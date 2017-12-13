@@ -7,7 +7,7 @@ CarrierWave.configure do |config|
       aws_secret_access_key: ENV.fetch('AWS_SECRET_ACCESS_KEY'),
       region:                ENV.fetch('AWS_REGION')
     }
-    config.fog_directory  = ENV.fetch('S3_BUCKET_NAME')
+    config.fog_directory  = ENV.fetch('S3_MUSIFY_BUCKET')
     config.fog_attributes = { cache_control: "public, max-age=#{365.day.to_i}" }
   end
 end
