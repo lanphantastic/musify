@@ -19,7 +19,9 @@
         <%= image_tag genre.events.first.images.sixteen_by_nine.first.url, class: "d-block w-100"  %>
         <div class="carousel-caption d-md-block">
           <h3><%= genre.events.first.artist.name%></h3>
-          <p><%= genre.events.first.name%></p>
+          <% if genre.events.first.name != genre.events.first.artist.name %>
+            <p><%= genre.events.first.name%></p>
+          <% end %>
         </div>
       </div>
       <% end %>
@@ -44,7 +46,7 @@
     <div class="card-deck mt-3">
 
   <% @genres.random_genres.each do |genre| %>
-    <% if genre.events.any? %>
+    <% if genre.events.any? && genre.events.first.images.any? %>
 
       <!-- Responsive -->
       <div class="genre-card col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-3">

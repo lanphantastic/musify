@@ -26,8 +26,19 @@
                 <div class="card-body">
                   <h4 class="card-title"><%= event.name %></h4>
                   <% if event.date %>
-                    <p class="card-text"><small class="text-muted"><%= event.pretty_date %></small></p>
-                    <p class="card-text"><small class="text-muted"><%= event.pretty_time %></small></p>
+                    <p class="card-text">
+                      <small class="text-muted">
+                      <span class="icon-calendar"></span>
+                      <%= event.pretty_date %> at <%= event.pretty_time %>
+                      </small>
+                    </p>
+                    <p class="card-text">
+                      <small class="text-muted">
+                        <span class="icon-map-marker"></span>
+                        <%= event.venue.name %>
+                      </small>
+                    </p>
+
                   <% end %>
                 </div>
 

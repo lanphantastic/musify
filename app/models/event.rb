@@ -17,11 +17,11 @@ class Event < ApplicationRecord
 
 
   def pretty_date
-    Time.at(self.date).strftime('%A, %B %d, %Y')
+    Time.at(self.date).strftime('%A, %B %d, %Y')  # Monday, September, 12, 2017
   end
 
   def pretty_time
-    Time.at(self.date.to_i).strftime('%I:%M %p')
+    Time.at(self.date.to_i).strftime('%I:%M %p')  # 04:38 PM/AM
   end
 
   private
