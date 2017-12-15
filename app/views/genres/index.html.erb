@@ -18,7 +18,7 @@
       <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
         <%= image_tag genre.events.first.images.sixteen_by_nine.first.url, class: "d-block w-100"  %>
         <div class="carousel-caption d-md-block">
-          <h3><%= genre.events.first.artist.name%></h3>
+          <h3><%= link_to genre.events.first.artist.name, artist_path(genre.events.first.artist)%></h3>
           <% if genre.events.first.name != genre.events.first.artist.name %>
             <p><%= genre.events.first.name%></p>
           <% end %>
