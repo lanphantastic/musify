@@ -2,53 +2,56 @@
   <div class="row">
     <div class="col-md-12">
 
+      <!-- GOOGLE MAP -->
       <div id="genre-map" class="mt-3"></div>
+
       <h1 class="genre-events-title"><%= @genre.name %> Events</h1>
       <br>
 
+      <!-- LIST OF EVENTS FOR SELECTED GENRE -->
       <div class="card-deck">
 
         <% @events.each do |event| %>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-3 d-flex">
 
-              <!-- INDIVIDUAL EVENT SLOT -->
-              <div class="card">
-                <% if event.images.any? %>
-                  <img class="card-img-top" src="<%= event.images.sixteen_by_nine.first.url %>" alt="Card image cap">
-                <% elsif event.image %>
-                  <%= image_tag event.image.card.url, class: "card-img-top" %>
-                <% else %>
-                  <%= image_tag "default-placeholder-1024x1024-960x540.png", class: "card-img-top"%>
+            <!-- INDIVIDUAL EVENT SLOT -->
+            <div class="card">
+              <% if event.images.any? %>
+                <img class="card-img-top" src="<%= event.images.sixteen_by_nine.first.url %>" alt="Card image cap">
+              <% elsif event.image %>
+                <%= image_tag event.image.card.url, class: "card-img-top" %>
+              <% else %>
+                <%= image_tag "default-placeholder-1024x1024-960x540.png", class: "card-img-top"%>
+              <% end %>
+
+              <!-- EVENT'S DESCRIPTION -->
+              <div class="card-body">
+                <h4 class="card-title"><%= event.name %></h4>
+                <% if event.date %>
+                  <p class="card-text">
+                    <small class="text-muted">
+                    <span class="icon-calendar"></span>
+                    <%= event.pretty_date %> at <%= event.pretty_time %>
+                    </small>
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted">
+                      <span class="icon-map-marker"></span>
+                      <%= event.venue.name %>
+                    </small>
+                  </p>
+
                 <% end %>
-
-                <!-- EVENT'S DESCRIPTION -->
-                <div class="card-body">
-                  <h4 class="card-title"><%= event.name %></h4>
-                  <% if event.date %>
-                    <p class="card-text">
-                      <small class="text-muted">
-                      <span class="icon-calendar"></span>
-                      <%= event.pretty_date %> at <%= event.pretty_time %>
-                      </small>
-                    </p>
-                    <p class="card-text">
-                      <small class="text-muted">
-                        <span class="icon-map-marker"></span>
-                        <%= event.venue.name %>
-                      </small>
-                    </p>
-
-                  <% end %>
-                </div>
-
-                <!-- EVENT'S BUTTON -->
-                <div class="card-footer">
-                  <a id="event<%= event.id %>" href="<%= event_path(event.id) %>" class="btn btn-dark">More Details</a>
-                </div>
-
               </div>
+
+              <!-- EVENT'S BUTTON -->
+              <div class="card-footer">
+                <a id="event<%= event.id %>" href="<%= event_path(event.id) %>" class="btn btn-dark">More Details</a>
+              </div>
+
             </div>
+          </div>
         <% end %>  <!-- END OF @EVENTS LOOP -->
       </div>
 

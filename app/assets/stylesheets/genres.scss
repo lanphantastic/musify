@@ -18,6 +18,15 @@
     background: black;
 }
 
+.carousel-link a {
+  color: white;
+}
+
+.carousel-link a:hover {
+  text-decoration: none;
+  color:white;
+}
+
 .carousel-caption{
   bottom: 0;
   top: 0;

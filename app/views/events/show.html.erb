@@ -17,7 +17,7 @@
       <!-- EVENT'S IMAGE -->
       <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
         <% if @event.images.any? %>
-        <img src="<%= @event.images.sixteen_by_nine.first.url %>" alt="<%=@event.name %>" class="img-fluid mx-auto">
+          <img src="<%= @event.images.sixteen_by_nine.first.url %>" alt="<%=@event.name %>" class="img-fluid mx-auto">
         <% elsif @event.image %>
           <%= image_tag @event.image.card.url, class: "img-fluid mx-auto" unless @event.image.card.url.blank? %>
         <% end %>

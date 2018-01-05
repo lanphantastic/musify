@@ -1,4 +1,3 @@
-
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
   <!-- Line Indicators -->
@@ -16,12 +15,12 @@
       <% if genre.events.any? && genre.events.first.images.any? %>
 
       <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-        <%= image_tag genre.events.first.images.sixteen_by_nine.first.url, class: "d-block w-100"  %>
+        <%= image_tag genre.events.first.images.sixteen_by_nine.first.url, class: "d-block w-100" %>
         <div class="carousel-caption d-md-block">
-          <h3><%= genre.events.first.artist.name %></h3>
-          <h3><%#= link_to genre.events.first.artist.name, artist_path(genre.events.first.artist)%></h3>
+          <h3><%#= genre.events.first.artist.name %></h3>
+          <h3 class="carousel-link"><%= link_to genre.events.first.artist.name, artist_path(genre.events.first.artist)%></h3>
           <% if genre.events.first.name != genre.events.first.artist.name %>
-            <p><%= genre.events.first.name%></p>
+            <p class="carousel-link"><%= link_to genre.events.first.name, artist_path(genre.events.first.artist)%></p>
           <% end %>
         </div>
       </div>

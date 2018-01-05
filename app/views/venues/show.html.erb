@@ -13,7 +13,7 @@
     <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
       <h2>Upcoming Events</h2>
       <ul class="list-group pre-scrollable">
-        <% @venue.events.each do |event| %>
+        <% @venue.events.order(:date).each do |event| %>
         <li class="list-group-item">
           <a href="<%= event_url(event) %>"><%= event.name %></a>
           <p><%= event.pretty_date %> @ <%= event.pretty_time %></p>

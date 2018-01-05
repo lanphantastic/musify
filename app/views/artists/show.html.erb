@@ -13,7 +13,7 @@
 
       <h2>Upcoming Events</h2>
 
-      <% @artist.events.each do |event| %>
+      <% @artist.events.order(:date).each do |event| %>
 
       <ul class="list-group">
         <li class="list-group-item"> <p><%= link_to event.name, event_path(event) %></p> <p><%= event.pretty_date %> @ <%= event.pretty_time %></p></li>
@@ -59,4 +59,6 @@
     </div>    <!-- END OF SOCIAL MEDIA -->
 
   </div>      <!-- END OF DIV='ROW' -->
+
+  <iframe src="https://open.spotify.com/embed?uri=<%=@artist_uri%>" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 </div>
