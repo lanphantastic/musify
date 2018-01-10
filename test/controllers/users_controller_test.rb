@@ -1,4 +1,5 @@
 require 'test_helper'
+require 'pry'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
 
@@ -6,5 +7,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get new_user_url
     assert_response :success
   end
+
+  # test "should get show" do
+  #   user = users(:one)
+  #   get :show, id: user.id
+  #   # binding.pry
+  #   assert_response :success
+  # end
 
 end

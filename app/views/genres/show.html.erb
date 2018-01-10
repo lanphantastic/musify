@@ -11,7 +11,7 @@
       <!-- LIST OF EVENTS FOR SELECTED GENRE -->
       <div class="card-deck">
 
-        <% @events.each do |event| %>
+        <% @events.order(:date).each do |event| %>
 
             <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 mb-3 d-flex">
 
